@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Experimental_Workshop.MVVM.View.ReportsView.FinalRequestView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Experimental_Workshop.MVVM.View.ReportsView"
+             mc:Ignorable="d" 
+             d:DesignHeight="620" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Equipment and Technology Card Amount:" Foreground="White" 
+               TextAlignment="Center" FontSize="30" Margin="0,0,0,10"/>
+            <DataGrid Style="{StaticResource ModernDataGrid}"
+                  IsReadOnly="True"
+                  CanUserDeleteRows="False"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  AutoGenerateColumns="False"
+                  CanUserResizeRows="False"
+                  AlternatingRowBackground="#1b1f2b"
+                  ItemsSource="{Binding EquipmentAndAmountOfCards}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id"
+                                Binding="{Binding Id}"
+                                MinWidth="50"/>
+
+                    <DataGridTextColumn Header="Name"
+                                Binding="{Binding Name}"
+                                MinWidth="100"/>
+                    <DataGridTextColumn Header="Amount of Technology Cards"
+                                Binding="{Binding TechnologyCardCount}"
+                                MinWidth="250"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

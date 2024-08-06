@@ -1,0 +1,87 @@
+﻿<Application x:Class="Experimental_Workshop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:VM="clr-namespace:Experimental_Workshop.MVVM.ViewModel"
+             xmlns:DataTableVM="clr-namespace:Experimental_Workshop.MVVM.ViewModel.DataTableViewModel"
+             xmlns:ReportsVM="clr-namespace:Experimental_Workshop.MVVM.ViewModel.ReportsViewModel"
+             xmlns:DocumentsVM="clr-namespace:Experimental_Workshop.MVVM.ViewModel.DocumentationViewModel"
+             xmlns:ReportsView="clr-namespace:Experimental_Workshop.MVVM.View.ReportsView"
+             xmlns:DocumentsView="clr-namespace:Experimental_Workshop.MVVM.View.DocumentationView"
+             xmlns:DataTableView="clr-namespace:Experimental_Workshop.MVVM.View.DataTableView"
+             xmlns:local="clr-namespace:Experimental_Workshop"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="Styles/AnotherScrollViewStyle.xaml"/>-->
+                <ResourceDictionary Source="Styles/ScrollViewStyle.xaml"/>
+                <ResourceDictionary Source="Styles/ComboboxStyle.xaml"/>
+                <ResourceDictionary Source="Styles/DatagridStyle.xaml"/>
+                <ResourceDictionary Source="Styles/RadioButtonStyle.xaml"/>
+                <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="Styles/RadioButtonTabMenuButtonStyle.xaml"/>
+                <ResourceDictionary Source="Styles/WarermarkedTextBoxStyle.xaml"/>
+                <ResourceDictionary Source="Styles/ListboxStyle.xaml"/>
+                <ResourceDictionary Source="Styles/CheckBoxStyle.xaml"/>
+                <ResourceDictionary Source="Styles/DatePickerStyle.xaml"/>
+                <!--<ResourceDictionary Source="Styles/DocumentsViewerStyle.xaml"/>-->
+            </ResourceDictionary.MergedDictionaries>
+
+            
+            
+            <DataTemplate DataType="{x:Type DataTableVM:DataTableMainVM}">
+                <DataTableView:DataTableMainView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type DataTableVM:WorkersDataTableVM}">
+                <DataTableView:WorkersDataTableView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type DataTableVM:JobTitleDataTableVM}">
+                <DataTableView:JobTitleDataTableView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type DataTableVM:EquipmentDataTableVM}">
+                <DataTableView:EquipmentDataTableView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type DataTableVM:MaterialsDataTableVM}">
+                <DataTableView:MaterialsDataTableView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type DataTableVM:MicroprocessorTypesDataTableVM}">
+                <DataTableView:MicroprocessorTypesDataTableView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type DataTableVM:TechnologyCardDataTableVM}">
+                <DataTableView:TechnologyCardDataTableView/>
+            </DataTemplate>
+            
+            
+            
+            
+            <DataTemplate DataType="{x:Type DocumentsVM:MainDocumentationVM}">
+                <DocumentsView:MainDocumentationVIew/>
+            </DataTemplate>
+
+
+
+            <DataTemplate DataType="{x:Type ReportsVM:MainReportsVM}">
+                <ReportsView:MainReportView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ReportsVM:PivotRequestVM}">
+                <ReportsView:CrossJoinView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ReportsVM:FinalRequestVM}">
+                <ReportsView:FinalRequestView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ReportsVM:MergeRequestVM}">
+                <ReportsView:MergeRequestView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ReportsVM:ParameterizedQueryVM}">
+                <ReportsView:ParameterizedQueryView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ReportsVM:SampleVM}">
+                <ReportsView:SampleView/>
+            </DataTemplate>
+
+            
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

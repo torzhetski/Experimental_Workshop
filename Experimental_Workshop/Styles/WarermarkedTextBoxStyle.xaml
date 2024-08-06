@@ -1,0 +1,99 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--<Style TargetType="PasswordBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Border BorderBrush="Transparent" BorderThickness="0.3" Background="Transparent" CornerRadius="0">
+                        <Grid >
+                            --><!--<PasswordBox Margin="2"
+                                         Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Path=Text, UpdateSourceTrigger=PropertyChanged}"
+                                         VerticalAlignment="Center"
+                                         Background="Transparent"
+                                         CaretBrush="White"
+                                         Foreground="DarkGray"
+                                         BorderThickness="{TemplateBinding BorderThickness}"
+                                         FontSize="{TemplateBinding FontSize}"
+                                         x:Name="Box"/>--><!--
+
+                            <TextBlock Text="{TemplateBinding Tag}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Background="Transparent"
+                                       Foreground="DarkGray"
+                                       Grid.Column="1"
+                                       TextTrimming="CharacterEllipsis"
+                                       Margin="5,0,0,0"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       IsHitTestVisible="False"
+                                       x:Name ="Watermark">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}" Value="" >
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>                                
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+
+    <Style TargetType="TextBox" x:Key="WatermarkTextBoxStyle">
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border BorderBrush="Transparent" BorderThickness="0.3" Background="{TemplateBinding Background}" CornerRadius="0">
+                        <Grid >
+                            <TextBox Margin="2"
+                                 Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Path=Text, UpdateSourceTrigger=PropertyChanged}"
+                                 VerticalAlignment="Center"
+                                 Background="Transparent"
+                                 CaretBrush="White"
+                                 Foreground="{TemplateBinding Foreground}"
+                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                 FontSize="{TemplateBinding FontSize}"
+                                 x:Name="Box"/>
+
+
+                            <TextBlock Text="{TemplateBinding Tag}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Background="Transparent"
+                                   Foreground="DarkGray"
+                                   Grid.Column="1"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="5,0,0,0"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   IsHitTestVisible="False"
+                                   x:Name ="Watermark">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=Box, Path=Text}" Value="" >
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

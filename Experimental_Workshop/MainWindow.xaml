@@ -1,0 +1,148 @@
+﻿<Window x:Class="Experimental_Workshop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Experimental_Workshop"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:VM="clr-namespace:Experimental_Workshop.MVVM.ViewModel"
+        xmlns:convert="clr-namespace:Experimental_Workshop.ApplicationResourses.Converters"
+        xmlns:This="clr-namespace:Experimental_Workshop.ApplicationResourses"
+        mc:Ignorable="d"
+        x:Name="Window"
+        Title="MainWindow" Height="720" Width="1080"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <!--<Window.DataContext>
+        <VM:MainVM/>
+    </Window.DataContext>-->
+    <Window.Resources>
+        <convert:CustomBoolTovisibilityConverter x:Key="CustomBoolToVisibilityConverter"/>
+    </Window.Resources>
+    
+    <Border x:Name="MainBorder"
+            CornerRadius="50" 
+            Background="#151922" 
+            MouseDown="Border_MouseDown" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="270"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Button x:Name="MenuButton"
+                    Width="70" 
+                    Height="50"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Left">
+                
+                <materialDesign:PackIcon x:Name="MenuIcon"
+                                     HorizontalAlignment="Left"
+                                     Width="50" 
+                                     Height="50"
+                                     Kind="MenuOpen" 
+                                     Foreground="White"/>
+            </Button>
+            
+            <Border Grid.Row="1" 
+                    CornerRadius="0,90,0,50"
+                    Width="270"
+                    HorizontalAlignment="Left"
+                    Background="#1b1f2b"
+                    Margin="0,0,0,0">
+
+                <DockPanel>
+
+                    <StackPanel DockPanel.Dock="Top" >
+
+                        <materialDesign:PackIcon HorizontalAlignment="Center" Width="90" Height="90" Kind="User" Foreground="White"/>
+
+                        <TextBlock HorizontalAlignment="Center" Text="User" FontSize="24" Foreground="White"/>
+
+                        <RadioButton Command="{Binding NextPageCommand}"
+                                     CommandParameter="{x:Static This:ID.First}"
+                                     IsChecked="True">
+
+                            <StackPanel Orientation="Horizontal" Margin="20,0,0,0" >
+                                <materialDesign:PackIcon Kind="Table" VerticalAlignment="Center" Height="25" Width="25"/>
+                                <TextBlock Text="Data Table" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Command="{Binding NextPageCommand}"
+                                     CommandParameter="{x:Static This:ID.Second}">
+                            <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                                <materialDesign:PackIcon Kind="QuestionAnswer" VerticalAlignment="Center" Height="25" Width="25"/>
+                                <TextBlock Text="Reports" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Command="{Binding NextPageCommand}"
+                                     CommandParameter="{x:Static This:ID.Third}">
+                            <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                                <materialDesign:PackIcon Kind="DocumentSign" VerticalAlignment="Center" Height="25" Width="25"/>
+                                <TextBlock Text="Documentation" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <Button HorizontalContentAlignment="Left" Height="50" Click="Button_Click"> 
+                            <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                                <materialDesign:PackIcon Kind="Administrator" VerticalAlignment="Center" Height="25" Width="25"/>
+                                <TextBlock Text="Admin Panel" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                        <TextBlock Text="Password:" 
+                                   x:Name="PasswordText"
+                                   Margin="20,0,20,0"
+                                   Background="Transparent" 
+                                   Foreground="DarkGray"
+                                   Visibility="Collapsed"/>
+                        <PasswordBox Background="Transparent" 
+                                     Foreground="White"
+                                     x:Name="PasswordBox"
+                                     BorderThickness="1"
+                                     FontSize="12" Margin="20,0,20,0"
+                                     Tag="Enter Password ..."
+                                     Visibility="Collapsed"/>
+                        <Button Content="Enter" 
+                                x:Name="CheckPassword"
+                                Click="CheckPassword_Click"
+                                Command="{Binding CheckPasswordCommand}"
+                                CommandParameter="{Binding ElementName=Window}" 
+                                Visibility="Collapsed"/>
+                    </StackPanel>
+
+                    <Button x:Name="ExitButton"
+                            VerticalAlignment="Bottom"
+                            Margin="0,0,0,15"
+                            Height="50"
+                            HorizontalContentAlignment="Left"
+                            Click="ExitButton_Click">
+
+                        <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                            <materialDesign:PackIcon Kind="ExitToApp" VerticalAlignment="Center" Height="25" Width="25"/>
+                            <TextBlock Text="Exit" VerticalAlignment="Center" />
+                        </StackPanel>
+
+                    </Button>
+
+                </DockPanel>
+                
+            </Border>
+
+            <ContentControl Margin="20,0,0,0"
+                            Grid.Column="1" 
+                            Grid.Row="0" 
+                            Grid.RowSpan="2" 
+                            Content="{Binding CurrentView}"/>
+
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="Experimental_Workshop.Controls.LastTechCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Experimental_Workshop.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="300">
+    <Border BorderBrush="#888888" BorderThickness="1" CornerRadius="8" Padding="5,5,5,3">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.ColumnSpan="5"  Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding Name}" 
+                           TextWrapping="Wrap"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           TextAlignment="Center"
+                           Margin="5,0,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.RowSpan="2" >
+                <TextBlock Text="Options:" Foreground="White"/>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Text="Freaquency:" Foreground="Gray" FontSize="8"/>
+                    <TextBlock Text="{Binding Frequency}" Foreground="Gray" FontSize="8" Margin="3,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Text="Power:" Foreground="Gray" FontSize="8"/>
+                    <TextBlock Text="{Binding Power}" Foreground="Gray" FontSize="8" Margin="3,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <TextBlock Text="Worekrs:" Foreground="White"/>
+                <ListBox ItemsSource="{Binding Workers}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" Foreground="Gray" FontSize="8" Margin="2,0,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <TextBlock Text="Materials:" Foreground="White"/>
+                <ListBox ItemsSource="{Binding Materials}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" Foreground="Gray" FontSize="8" Margin="2,0,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <TextBlock Text="Equipment:" Foreground="White"/>
+                <ListBox ItemsSource="{Binding Equipment}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" Foreground="Gray" FontSize="8" Margin="2,0,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <StackPanel Grid.Row="3"  Grid.ColumnSpan="2">
+                <TextBlock Text="Microprocessor Type:" Foreground="White"/>
+                <TextBlock Text="{Binding MicroprocessorType.Name}" Foreground="Gray" FontSize="8"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4"  Grid.ColumnSpan="3" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Date of Start:" Foreground="White"/>
+                    <TextBlock Text="{Binding DateOfStart, StringFormat={}{0:MM/dd/yyyy}}" 
+                               Foreground="Gray" FontSize="8" VerticalAlignment="Center"
+                               Margin="3,2,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Date of End:" Foreground="White" />
+                    <TextBlock Text="{Binding DateOfEnd, StringFormat={}{0:MM/dd/yyyy}}" 
+                               Foreground="Gray" FontSize="8" VerticalAlignment="Center"
+                               Margin="3,2,0,0" TextAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
